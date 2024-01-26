@@ -11,7 +11,7 @@ services:
             MONGO_INITDB_ROOT_USERNAME: ${AMBULANCE_API_MONGODB_USERNAME}
             MONGO_INITDB_ROOT_PASSWORD: ${AMBULANCE_API_MONGODB_PASSWORD}
     mongo_express:
-        image: mongo-express:1.0.0-alpha
+        image: mongo-express
         container_name: mongo_express
         restart: always
         ports:
@@ -20,8 +20,8 @@ services:
             ME_CONFIG_MONGODB_ADMINUSERNAME: ${AMBULANCE_API_MONGODB_USERNAME}
             ME_CONFIG_MONGODB_ADMINPASSWORD: ${AMBULANCE_API_MONGODB_PASSWORD}
             ME_CONFIG_MONGODB_SERVER: mongo_db
-            ME_CONFIG_BASICAUTH_USERNAME: ''
-            ME_CONFIG_BASICAUTH_PASSWORD: ''
+            ME_CONFIG_BASICAUTH_USERNAME: mexpress
+            ME_CONFIG_BASICAUTH_PASSWORD: mexpress
         links:
         - mongo_db
 volumes:
