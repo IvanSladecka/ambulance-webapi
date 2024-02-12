@@ -15,13 +15,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
+    - name: Get Go version from go.mod
+      id: get_go_version
+      run: echo ::set-output name=go_version::$(grep 'go ' go.mod | awk '{print $2}')
+      
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.21'
-    
+        go-version: ${{ steps.get_go_version.outputs.go_version }}
+
     - name: Generate api controllers interfaces
       uses: craicoverflow/openapi-generator-generate-action@v1.2.1
       with:
