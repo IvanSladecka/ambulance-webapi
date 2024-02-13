@@ -50,7 +50,7 @@ jobs:
 
     - name: Docker Metadata action
       id: meta
-      uses: docker/metadata-action@v4.6.0
+      uses: docker/metadata-action@v3
       with:
         images: IvanSladecka/ambulance-wl-webapi
         tags: |
