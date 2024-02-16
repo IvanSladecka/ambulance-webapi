@@ -103,7 +103,7 @@ spec:
             containerPort: 8081
           env:
             - name: PORT
-              value: "8080"
+              value: "8081"
             - name:   URL
               value: /openapi
             - name: BASE_URL
